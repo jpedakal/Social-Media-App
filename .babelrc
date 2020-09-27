@@ -1,0 +1,15 @@
+{
+    "presets": [
+        [
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        "@babel/present-react"
+    ],
+    "plugins": [
+        "react-hot-loader/babel"
+    ]
+}
