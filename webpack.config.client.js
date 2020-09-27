@@ -2,6 +2,17 @@ const path = require('path');
 const webpack = require('webpack');
 const CURRENT_WORKING_DIR = process.cwd();
 
-const config = {};
+const config = {
+    name: "browser",
+    mode: "development",
+    devtool: 'eval-source-map',
+    entry: [
+        'webpack-hot-middleware/client?reload=true',
+        path.join(CURRENT_WORKING_DIR, 'client/main.js')
+    ],
+    output: {
+        path: path.join
+    }
+};
 
 module.exports = config;
