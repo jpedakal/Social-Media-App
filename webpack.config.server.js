@@ -1,6 +1,27 @@
 const path = require('path');
 const CURRENT_WOKRING_DIR = process.cwd();
+const nodeExternals = require('webpack-node-externals');
 
-const config = {};
+const config = {
+    name: "server",
+    entry: [ path.join(CURRENT_WOKRING_DIR, './server/server.js') ],
+    target: "node",
+    output: {
+        path: path.join(CURRENT_WOKRING_DIR, /dist/),
+        filename: "server.generated.js",
+        publicPath: '/dist/',
+        libraryTarget: "commonjs2"
+    },
+    externals: [nodeExternals()],
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            }
+        ]
+    }
+};
 
 module.exports = config;
